@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leonexercise5</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        .jumpscare {
+            background-color: black;
+            color: tomato;
+        }
+       .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        #toggleModeButton:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="toggleModeButton">Don't be afraid :)</h1>
+    <h2 class="message">There's nothing scary here</h2>
+    <img id="pepe" src="peepo.gif" class="hidden"/>
+</body>
+<script>
+    const toggleModeButton = document.getElementById('toggleModeButton');
+    const pepepic = document.getElementById("pepe");
+
+    toggleModeButton.addEventListener('click', function() {
+        document.body.classList.toggle('jumpscare');
+        let messageElement = document.querySelector('.message'); 
+        let titleElement = document.querySelector('.toggleModeButton'); 
+
+        if (document.body.classList.contains('jumpscare')) {
+            messageElement.textContent = 'gotcha ( ๑‾̀◡‾́)';
+            toggleModeButton.textContent = 'BOO!!!';
+            pepepic.classList.remove('hidden');
+            pepepic.classList.add('visible');
+            
+        } else {
+            messageElement.textContent = "There's nothing scary here";
+            toggleModeButton.textContent = "Don't be afraid :)";
+
+            pepepic.classList.remove('visible');
+            pepepic.classList.add('hidden');
+        }
+    });
+</script>
+</html>
